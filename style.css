@@ -4,6 +4,14 @@
             font-family: Arial, sans-serif;
         }
 
+        body.home-page {
+          min-height: 100vh;
+          background-image: url("IMG_1637(20261101-000709).PNG");
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+        }
+
         h1 {
             color:aqua;
             font-family: sans-serif;
@@ -23,6 +31,10 @@
             background-color: white;
             padding: 50px;
 
+        }
+
+        .home-page main {
+          background-color: transparent;
         }
 
         .quotes-grid {
@@ -47,11 +59,21 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-.hero img {
+.home-page nav {
+  box-sizing: border-box;
   width: 100%;
-  height: 20rem;
-  object-fit: cover;
-  border-radius: 10px;
+  background-color: rgba(101, 67, 33, 0.38);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border-bottom: 1px solid rgba(222, 184, 135, 0.55);
+}
+
+.home-page nav a {
+  color: #fff8ed;
+}
+
+.home-page nav .action {
+  border-color: rgba(255, 248, 237, 0.8);
 }
 
 nav {
