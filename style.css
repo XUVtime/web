@@ -56,12 +56,14 @@
           background-attachment: fixed;
         }
 
-        body.ssg08-page {
+        body.ssg08-page,
+        body.awp-page {
           background-image: none;
           background-color: transparent;
         }
 
-        .ssg08-background-video {
+        .ssg08-background-video,
+        .awp-background-video {
           position: fixed;
           inset: 0;
           z-index: 0;
@@ -73,7 +75,10 @@
 
         .ssg08-page > header,
         .ssg08-page > main,
-        .ssg08-page > footer {
+        .ssg08-page > footer,
+        .awp-page > header,
+        .awp-page > main,
+        .awp-page > footer {
           position: relative;
           z-index: 1;
         }
@@ -255,6 +260,7 @@
 
         .weapon-page h1 {
           color: #1f2937;
+          text-align: center;
         }
 
         .weapon-page .weapon-image {
