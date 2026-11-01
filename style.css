@@ -26,6 +26,22 @@
           pointer-events: none;
         }
 
+        .home-background-ripples {
+          position: fixed;
+          inset: 0;
+          z-index: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        .home-page > nav,
+        .home-page > main,
+        .home-page > footer {
+          position: relative;
+          z-index: 1;
+        }
+
         @media (prefers-reduced-motion: reduce) {
           body.home-page::before {
             transition: none;
@@ -249,6 +265,26 @@
           object-fit: contain;
         }
 
+        .weapon-page main > a[href="index.html"] {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 0.7rem 1rem;
+          border: 1px solid rgba(255, 255, 255, 0.28);
+          border-radius: 8px;
+          background: rgba(24, 24, 24, 0.82);
+          color: #fff;
+          text-decoration: none;
+        }
+
+        .weapon-page main > a[href="index.html"]:hover {
+          background: rgba(48, 48, 48, 0.94);
+        }
+
+        .weapon-page main > a[href="index.html"]:focus-visible {
+          outline: 2px solid #fff;
+          outline-offset: 3px;
+        }
+
         .weapon-stats {
           width: min(100%, 760px);
           margin: 2rem auto;
@@ -332,6 +368,7 @@
 .weapon-page nav .action,
 .project-page nav .action {
   border-color: rgba(255, 248, 237, 0.8);
+  color: #fff8ed;
 }
 
 nav {
@@ -364,9 +401,44 @@ nav .action {
   border-radius: 99px;       /* a pill */
   padding: .3em 1em;
   color: #0369a1;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
 }
 
 nav a:hover { color: #c2410c; }
+
+.site-copy-toast {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: max(1rem, env(safe-area-inset-left));
+  z-index: 2000;
+  width: fit-content;
+  max-width: min(36rem, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(24, 24, 24, 0.94);
+  color: #fff;
+  font: 500 0.95rem/1.4 Arial, sans-serif;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+}
+
+.site-copy-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.site-copy-toast.is-error {
+  border-color: rgba(255, 180, 160, 0.65);
+}
 
 ul {
     font-family: sans-serif;
