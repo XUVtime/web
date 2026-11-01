@@ -7,6 +7,7 @@
   <link rel="icon" href="favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home-weapon-effects.css">
 </head>
 
 <body class="home-page">
@@ -24,15 +25,18 @@
 
 <main>
       <h1>LIU Yue</h1>
-      <p>Computer Science at BiUH — and a website written entirely by hand.</p>
 
-<h2>On this site</h2>
-    <ul>
-      <li><a href="quotes.html">Quotes</a> — things worth reading twice</li>
-      <li><a href="project.html">Project ideas</a> — what I might build, and for whom</li>
-      <li><a href="about.html">About and contact</a> — who I am, and how to reach me</li>
-    </ul>
+      <p>Computer Science at BiUH — and a website<br>written entirely by hand.</p>
 
+      <div class="weapon-list">
+        <div class="weapon-link" data-weapon data-name="AWP" data-image="weapon_awp_png.webp" data-href="awp.html"></div>
+
+        <div class="weapon-link" data-weapon data-name="SSG 08" data-image="weapon_ssg08_png.webp" data-backdrop="danking.jpg" data-href="ssg08.html"></div>
+
+        <div class="weapon-link" data-weapon data-name="G3SG1" data-image="weapon_g3sg1_png.webp" data-href="g3sg1.html"></div>
+
+        <div class="weapon-link" data-weapon data-name="SCAR-20" data-image="weapon_scar20_png.webp" data-href="scar20.html"></div>
+      </div>
 
 </main>
 
@@ -40,5 +44,7 @@
   <footer id="site-footer"></footer>
 
 <script src="nav.js"></script>
+<script src="home-weapon-effects.js"></script>
+<script src="home-background-parallax.js"></script>
 </body>
 </html>

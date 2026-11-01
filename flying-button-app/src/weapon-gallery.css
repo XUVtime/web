@@ -1,0 +1,142 @@
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    linear-gradient(135deg, rgba(42, 48, 56, 0.35), transparent 55%),
+    #17191c;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  border: 0;
+  text-align: left;
+}
+
+.weapon-gallery {
+  width: min(1320px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 48px 0 64px;
+}
+
+.weapon-gallery h1 {
+  margin: 0 0 32px;
+  color: #f2f4f6;
+  font-size: 32px;
+  font-weight: 650;
+}
+
+.weapon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.weapon-card {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(160, 170, 180, 0.22);
+  border-radius: 12px;
+  background: rgba(44, 44, 44, 0.8);
+}
+
+.flight-stage {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #222528;
+}
+
+.weapon-flight {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.weapon-flight .flying-button__craft {
+  width: 220px;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.weapon-flight .flying-button__face {
+  display: none;
+}
+
+.weapon-flight .flying-button__label {
+  display: block;
+  width: 220px;
+  height: 150px;
+}
+
+.weapon-art {
+  position: relative;
+  display: block;
+  width: 220px;
+  height: 150px;
+}
+
+.weapon-image,
+.weapon-backdrop {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.weapon-image {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+}
+
+.weapon-backdrop {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.ssg-art .weapon-image {
+  top: 40px;
+}
+
+.weapon-card h2 {
+  display: grid;
+  min-height: 48px;
+  margin: 12px 0 0;
+  place-items: center;
+  border-radius: 6px;
+  background: #181818;
+  color: #f5f5f5;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .weapon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .weapon-gallery {
+    width: calc(100% - 32px);
+    padding-top: 32px;
+  }
+
+  .weapon-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .flight-stage {
+    height: 240px;
+  }
+}
