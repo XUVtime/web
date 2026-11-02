@@ -54,8 +54,8 @@ document.addEventListener('click', async event => {
   const email = button.dataset.copyEmail;
   try {
     await copyEmail(email);
-    showCopyToast(`已复制邮箱地址：${email}`);
+    showCopyToast(`Email address copied:${email}`);
   } catch {
-    showCopyToast(`复制失败，请手动复制：${email}`, true);
+    showCopyToast(`Copy failed. Please copy manually:${email}`, true);
   }
 });
