@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaction Test</title>
+  <link rel="icon" href="favicon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 反应测试页面自身样式 -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    body.reaction-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: url("mid.png") center / cover no-repeat;
+      color: #fff;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background: transparent;
+      padding: 2rem 1rem;
+    }
+    #box {
+      width: min(700px, 90%);
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      padding: 20px;
+      white-space: pre-line; /* 支持 \n 换行 */
+    }
+    .blue { background-color: rgba(33, 150, 243, 0.85); }
+    .red { background-color: rgba(229, 57, 53, 0.85); }
+    .yellow { background-color: rgba(253, 216, 53, 0.85); color: #222; }
+    .green { background-color: rgba(67, 160, 71, 0.85); }
+  </style>
+</head>
+<body class="reaction-page">
+  <nav>
+  <a class="logo" href="index.html">◆ My Site</a>
+
+  <ul class="links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="quotes.html">Quotes</a></li>
+    <li><a href="project.html">Project</a></li>
+    <li><a href="machine.html">Machine</a></li>
+  </ul>
+
+  <button class="action" type="button" data-copy-email="x20250047@stu.hibiuh.edu.cn">Contact</button>
+</nav>
+
+  <main>
+    <div id="box" class="blue">
+      Click anywhere to start
+    </div>
+  </main>
+
+  <script>
+    const box = document.getElementById('box');
+    let state = 'idle'; // idle / wait / ready / end
+    let startTime;
+    let timer;
+
+    box.onclick = () => {
+      if (state === 'idle') {
+        state = 'wait';
+        box.className = 'red';
+        box.innerText = 'Wait for green... Do NOT click early!';
+        const delay = 2000 + Math.random() * 3000;
+        timer = setTimeout(() => {
+          state = 'ready';
+          box.className = 'green';
+          box.innerText = 'CLICK NOW!';
+          startTime = Date.now();
+        }, delay);
+      } else if (state === 'wait') {
+        clearTimeout(timer);
+        state = 'idle';
+        box.className = 'blue';
+        box.innerText = 'Too early! Click to try again';
+      } else if (state === 'ready') {
+        const cost = Date.now() - startTime;
+        state = 'idle';
+        box.className = 'blue';
+        box.innerText = `Your reaction time: ${cost} ms\nClick to retry`;
+      }
+    }
+  </script>
+</body>
+</html>
